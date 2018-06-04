@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Bulletproof form!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script>
+            function validateForm() {
+                name("name");
+                name("last");
+                validateEmail();
+                validateCheckbox();
+                validateCountry();
+                validateComment();
+            }
+            
+            function name(elem) {
+                var x = document.forms["formA"][elem].value;
+                if (x == null || x == "") {
+                    alert("Name or last name must be filled out");
+                    return false;
+                }else{
+                
+                  
+                }
+                return true;
+            }
+            
+            function validateEmail() {
+                var email = document.forms["formA"]["mail"].value;
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                if (!re.test(email)) {
+                    alert("E-mail is incorrect");
+                    return false;
+                }
+                return true;
+            }
+          
+          
+            function upperCase(id){
+            var text=document.getElementById(id);
+            text. value=text. value. toUpperCase(); 
+            var no=  /1234567890/
+            var i=0;
+            for(i=0; i<text.value.length; i++){
+            if(!isNan(text.value.charAt(i))){
+                alert("SinNumeros");
+                return false;
+            }
+        }
+        }
+        
+        function sinNum(id){
+            var no=  /1234567890/
+            if(!no.test(id)){
+                 alert("SinNumeros");
+             }
+        }
+        
+        
+            
+            function validateCheckbox(){
+                var x = document.forms["formA"]["gender"];
+                if (x[0].checked || x[1].checked) {
+                    
+                    return true;
+                }else{
+                    alert("Plese check a gender");
+                    return false;
+                }
+                
+            }
+            
+             function validateCountry() {
+                var x = document.forms["formA"]["country"].value;
+                if (x == null || x == "") {
+                    alert("Please select a country");
+                    return false;
+                }
+                return true;
+            }
+            
+             function validateComment() {
+                var x = document.forms["formA"]["comm"].value;
+                if (x == null || x == "") {
+                    alert("Please write a comment");
+                    return false;
+                }
+                return true;
+            }
+        </script>
+        
+        
+        
+    </head>
+    <body>
+        <div><h1>My first bulletproof form!</h1></div>
+        <form name="formA" action="/" method="POST" onsubmit="return validateForm()">
+            <table border="1">
+            
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>First name</td>
+                    <td><input type="text" id="anyId3"  name="name" value="" onchange="upperCase('anyId3');"/></td>
+                </tr>
+                <tr>
+                    <td>Last name</td>
+                    <td><input type="text" id="anyId2"name="last" value=""onchange="upperCase('anyId2');" /></td>
+                </tr>
+                <tr>
+                    <td>E-mail:</td>
+                    <td><input type="text" name="mail" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td><input type="radio" name="gender" value="Male" /> Male <input type="radio" name="gender" value="Female" /> Female</td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td><select name="country">
+                            <option></option>
+                            <option>Mexico</option>
+                            <option>USA</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>All vaccines</td>
+                    <td><input type="checkbox" name="vacc" value="yes" /></td>
+                </tr>
+                <tr>
+                    <td>Comments</td>
+                    <td><textarea name="comm" rows="4" cols="20"></textarea></td>
+                </tr>
+                <tr>
+                    <td><input type="reset" value="Reset" /></td>
+                    <td><input type="submit" value="Send" /></td>
+                </tr>
+            </tbody>
+        </table>
+            </form>
+
+    </body>
+</html>

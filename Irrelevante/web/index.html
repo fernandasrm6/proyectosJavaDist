@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script src="myjavascriptfile.js"></script>
+        <div>Fidelio</div>
+        <script> 
+            var carros = new Array("Mercedes",3, "Bocho");
+            document.write("<h1>Mi primera linea alv"+carros+"</h1>");
+            
+            function changeText(elementid){
+                var element= document.getElementById(elementid);
+                element.innerHTML= "12345678910";
+            }
+        </script>
+        <table border="1">
+            
+            <tbody>
+                <tr>
+                    <td id= "uno">1</td>
+                    <td><input type="button" value="Cambiar" onclick="changeText('uno');" /></td>
+                </tr>
+                <tr>
+                    <td><div id="dos">2</div></td>
+                    <td><input type="button" value="Cambiar" onclick="changeText('dos');" /></td>
+                </tr>
+                <tr>
+                    <td><span id="tres">3</span></td>
+                    <td><input type="button" value="Cambiar" onclick="changeText('tres');" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <img id="myimage" onclick="changeImage()" src="IMAGES/FIDEO.jpeg" >
+        <p>
+Name: <span id="aName"> </span> <br/>
+ Year: <span id="aYear">
+</p>
+<script>
+var anObject= {
+name:"Smith",
+year:1984};
+
+  document.getElementById("aName").innerHTML=anObject.name; 
+  document.getElementById("aYear").innerHTML=anObject.year;
+  var person=new Object();
+  person. firstname="Juan";
+  person. age=50;
+  document.write(person.firstname + " is " + person.age + " years old."); 
+</script>
+<script>
+function myFunction() {
+var y=document.getElementById("mess"); 
+y.innerHTML="";
+try {
+var x=document.getElementById("demo").value;
+if(x =="") throw "empty";
+    if(isNaN(x)) throw "not a number";
+        if(x>10)  throw "too high";
+            if(x<5)throw "too low";
+ 
+  
+} catch(err) { 
+    y.innerHTML="Error: " + err + ".";
+    }
+} </script>
+<script>
+function upperCase(id){
+var text=document.getElementById(id);
+text. value=text. value. toUpperCase(); }
+</script>
+<script>
+function increaseText(obj){
+obj.innerHTML= obj.innerHTML.charAt(0)+ obj.innerHTML;
+} </script>
+
+<script>
+function eventMouseOver(obj) { obj.innerHTML="Hola";
+}
+function eventMouseOut(obj){ obj.innerHTML="Bola"; }
+</script>
+<script>
+function validateForm(){
+var x=document.forms["myForm"]["fname"].value; if (x==null || x=="") {
+alert("First name must be filled out");
+return false; }
+return true; }
+</script>
+<h1 id ="anyId1" onclick="increaseText('anyId1')">Click on this text!</h1> <h1 id ="anyId2" onclick="increaseText('anyId2')">Click on this text!</h1>
+ <p>Please input a number between 5 and 10:</p>
+<input id="demo" type="text">
+<button type="button" onclick="myFunction()">Test Input</button> <p id="mess"></p>
+<input type="text" id="anyId3" onchange="upperCase('anyId3');">
+    <div onmouseover="eventMouseOver(this)"
+         onmouseout="eventMouseOut(this)" >
+        Mouse Over Me
+        </div>
+<form name=“myForm” action=“index”
+onsubmit="return validateForm()" method="post">
+First name: <input type="text" name="fname"> <br /> <input type="submit" value="Submit">
+</form>        
+    </body>
+</html>

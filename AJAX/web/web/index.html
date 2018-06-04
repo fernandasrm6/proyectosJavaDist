@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>function loadNewContent(id, target) {
+                var ajaxRequest;
+                if (window.XMLHttpRequest) {
+                    ajaxRequest = new XMLHttpRequest(); // IE7+, Firefox, Chrome, Opera, Safari
+                } else {
+                    ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP"); // IE6, IE5
+                }
+                ajaxRequest.onreadystatechange = function () {
+                    if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200) {
+                        document.getElementById(id).innerHTML = ajaxRequest.responseText;
+                    }
+                }
+                var input = document.getElementById('input').value;
+                
+                ajaxRequest.open("GET", target+'?input='+input, true /*async*/);
+                ajaxRequest.send();
+            }</script>
+    </head>
+    <body>
+        <p>Ingresa estado para conocer capital</p>
+        <input type="text" id="input" name="input" value="" onkeyup="loadNewContent('suge','Suggestion')"/>
+        <p><strong>Sugerencias:</strong><span id="suge"></span></p>
+        
+    </body>
+</html>
